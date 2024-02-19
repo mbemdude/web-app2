@@ -1,0 +1,11 @@
+.background-primary {
+    background-color: #00a682 !important;
+    background-image: linear-gradient(108deg,#00a682 10%,#008d6e 100%) !important;
+    background-size: cover;
+}
+
+.login-image {
+    background: url(../img/logoats.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
