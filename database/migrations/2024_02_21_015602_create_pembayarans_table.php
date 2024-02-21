@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('santris', function (Blueprint $table) {
+        Schema::create('pembayarans', function (Blueprint $table) {
             $table->id(11);
-            $table->string('nama');
-            $table->string('nis',20)->unique();
+            $table->integer('santri_id')->constrained('santris')->onDelete('cascade');
+            $table->double('spp');
+            $table->double('uang_saku');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('santris');
+        Schema::dropIfExists('pembayarans');
     }
 };

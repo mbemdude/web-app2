@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Santri>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pembayaran>
  */
-class SantriFactory extends Factory
+class PembayaranFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,7 @@ class SantriFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama'  => fake()->name(),
-            'nis'   => fake()->unique()->randomNumber(8),
+            //
         ];
     }
 }

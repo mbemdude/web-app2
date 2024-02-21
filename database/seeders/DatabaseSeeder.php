@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
             'email'     => 'admin@bakkah.sch.id',
             'password'  => Hash::make('bismillah')
         ]);
+
+        \App\Models\Santri::factory(10)->create();
     }
 }
