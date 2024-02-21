@@ -22,3 +22,7 @@ Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
 
 // Dashboard
 Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
+
+Route::get('/pembayaran', function () {
+    return view('pembayaran.index');
+});
