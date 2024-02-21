@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('santris', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('nis',20)->unique();
             $table->timestamps();
         });
     }

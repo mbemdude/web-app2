@@ -17,7 +17,8 @@ class SantriFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama'  => fake()->name(),
+            'nis'   => fake()->unique()->random_int(8),
         ];
     }
 }

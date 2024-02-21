@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Santri;
+use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 
-class SantriController extends Controller
+class PembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('santri.index');
+        return view('pembayaran.index');
     }
 
     /**
@@ -34,7 +34,7 @@ class SantriController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Santri $santri)
+    public function show(Pembayaran $pembayaran)
     {
         //
     }
@@ -42,7 +42,7 @@ class SantriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Santri $santri)
+    public function edit(Pembayaran $pembayaran)
     {
         //
     }
@@ -50,7 +50,7 @@ class SantriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Santri $santri)
+    public function update(Request $request, Pembayaran $pembayaran)
     {
         //
     }
@@ -58,7 +58,7 @@ class SantriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Santri $santri)
+    public function destroy(Pembayaran $pembayaran)
     {
         //
     }
