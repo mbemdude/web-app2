@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
             'password'  => Hash::make('bismillah')
         ]);
 
-        \App\Models\Santri::factory(10)->create();
+        \App\Models\Santri::factory(50)->create();
     }
 }

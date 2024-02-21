@@ -12,7 +12,11 @@ class SantriController extends Controller
      */
     public function index()
     {
-        return view('santri.index');
+        return view('santri.index', [
+            'title'     => 'Data Santri',
+            'active'    => 'data-santri',
+            'santris'   => Santri::all()
+        ]);
     }
 
     /**
