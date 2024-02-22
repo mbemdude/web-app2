@@ -10,4 +10,8 @@ class Santri extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function pembayaran() {
+        return $this->belongsTo(Pembayaran::class);
+    }
 }

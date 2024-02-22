@@ -17,15 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Login Session
-Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::get('/',[LoginController::class,'index'])->name('login');
 Route::post('/login-proses',[LoginController::class, 'login_proses'])->name('login-proses');
-Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
+Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 
-// Dashboard
-Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
-
-Route::get('/pembayaran', function () {
-    return view('pembayaran.index');
+Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function(){
+    // Dashboard
+    Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
+    
+    Route::get('/pembayaran', function () {
+        return view('pembayaran.index');
+    });
+    
+    Route::get('/santri', [SantriController::class,'index'])->name('santri');
 });
-
-Route::get('/santri', [SantriController::class,'index'])->name('login');

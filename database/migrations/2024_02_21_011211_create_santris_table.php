@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('santris', function (Blueprint $table) {
-            $table->id(11);
+            $table->primary('nis',20)->unique();
             $table->string('nama');
-            $table->string('nis',20)->unique();
             $table->timestamps();
         });
     }

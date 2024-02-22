@@ -10,4 +10,8 @@ class Pembayaran extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function santri() {
+        return $this->hasMany(Santri::class);
+    }
 }
