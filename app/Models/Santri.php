@@ -9,9 +9,7 @@ class Santri extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
-    public function pembayaran() {
-        return $this->belongsTo(Pembayaran::class);
-    }
+    protected $primaryKey   = 'nis';
+    public $incrementing    = false;
+    protected $guarded      = [];
 }

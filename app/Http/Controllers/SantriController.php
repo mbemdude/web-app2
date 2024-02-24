@@ -24,7 +24,9 @@ class SantriController extends Controller
      */
     public function create()
     {
-        //
+        return view('santri.create', [
+            'title'     => 'Tambah Data Santri',
+        ]);
     }
 
     /**
@@ -32,7 +34,14 @@ class SantriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'nama' => 'required|max:255',
+            'nis' => 'required|unique:santris,nis',
+        ]);
+
+        Santri::create($validateData);
+
+        return redirect('/santri')->with('success', 'Data santri berhasil ditambahkan');
     }
 
     /**
@@ -64,6 +73,7 @@ class SantriController extends Controller
      */
     public function destroy(Santri $santri)
     {
-        //
+        $santri->delete();
+        return redirect('/santri')->with('success', 'Data santri berhasil dihapus');
     }
 }

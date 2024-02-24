@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id(11);
-            $table->integer('santri_id')->constrained('santris')->onDelete('cascade');
+            $table->string('santri_id', 255)->constrained('santris')->onDelete('cascade');
             $table->double('spp');
             $table->double('uang_saku');
             $table->timestamps();

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('santris', function (Blueprint $table) {
-            $table->primary('nis',20)->unique();
+            $table->string('nis', 255)->primary()->unique();
             $table->string('nama');
             $table->timestamps();
         });

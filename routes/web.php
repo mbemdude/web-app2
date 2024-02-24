@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SantriController;
+use App\Models\Santri;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,13 +22,11 @@ Route::get('/',[LoginController::class,'index'])->name('login');
 Route::post('/login-proses',[LoginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function(){
-    // Dashboard
-    Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
-    
-    Route::get('/pembayaran', function () {
-        return view('pembayaran.index');
-    });
-    
-    Route::get('/santri', [SantriController::class,'index'])->name('santri');
-});
+// Dashboard
+Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
+
+// Route::get('/pembayaran', function () {
+//     return view('pembayaran.index');
+// });
+
+Route::resource('/santri', SantriController::class);
