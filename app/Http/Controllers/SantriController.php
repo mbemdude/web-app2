@@ -57,7 +57,10 @@ class SantriController extends Controller
      */
     public function edit(Santri $santri)
     {
-        //
+        return view('santri.edit', [
+            'title'     => 'Ubah Data Santri',
+            'santri'    =>  $santri,
+        ]);
     }
 
     /**
@@ -65,7 +68,13 @@ class SantriController extends Controller
      */
     public function update(Request $request, Santri $santri)
     {
-        //
+        $validateData = $request->validate([
+            'nis'       => 'required|unique:santris,nis,'.$santri->nis.',nis',
+            'nama'      =>  'required|max:255',
+        ]);
+
+        $santri->update($validateData);
+        return redirect('/santri')->with('success', 'Data santri berhasil diupdate');
     }
 
     /**

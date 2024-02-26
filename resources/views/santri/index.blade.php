@@ -27,7 +27,7 @@
                             <td>{{ $santri->nama }}</td>
                             <td>{{ $santri->nis }}</td>
                             <td>
-                                <a href="#" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{ route('santri.edit', $santri->nis) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ $santri->nis }}">
                                     <i class="bi bi-trash"></i>
                                 </button>

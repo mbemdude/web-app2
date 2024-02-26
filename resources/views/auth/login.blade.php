@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>SIMB | Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -105,7 +105,21 @@
 
     @if ($message = Session::get('success'))
         <script>
-            Swal.fire('{{ $message }}');
+            Swal.fire({
+                title: 'Success!',
+                text: '{{ $message }}',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
+                showClass: {
+                    popup: 'swal2-noanimation',
+                    backdrop: 'swal2-noanimation'
+                },
+                hideClass: {
+                    popup: '',
+                    backdrop: ''
+                }
+            });
         </script>
     @endif
 
