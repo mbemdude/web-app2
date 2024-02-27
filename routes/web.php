@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SantriController;
+use App\Http\Controllers\SppController;
+use App\Http\Controllers\UangSakuController;
 use App\Models\Santri;
 use Illuminate\Support\Facades\Route;
 
@@ -25,8 +27,12 @@ Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 // Dashboard
 Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
 
-// Route::get('/pembayaran', function () {
-//     return view('pembayaran.index');
-// });
+Route::get('/bendahara', function () {
+    return view('bendahara.index',[
+        'title'     => 'Bendahara'
+    ]);
+});
 
 Route::resource('/santri', SantriController::class);
+Route::resource('/bendahara/spp', SppController::class);
+Route::resource('/bendahara/uang-saku', UangSakuController::class);
