@@ -12,7 +12,7 @@ class UangSakuController extends Controller
      */
     public function index()
     {
-        return view('bendahara.blade.php', [
+        return view('index.blade.php', [
             'title'         => 'Data Uang Saku',
             'active'        => 'data-uang-saku',
             'uangsakus'     => UangSaku::all()

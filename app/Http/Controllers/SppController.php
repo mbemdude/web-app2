@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Santri;
 use App\Models\Spp;
 use Illuminate\Http\Request;
 
@@ -24,16 +25,30 @@ class SppController extends Controller
      */
     public function create()
     {
-        //
+        $santris = Santri::all();
+        return view('bendahara.spp.create', [
+            'santris' => $santris,
+            'title' => 'Tambah Data SPP',
+        ]);
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'kode_tagihan'      => 'required|unique:spps,kode_tagihan',
+            'santri_nis'        => 'required|exists:santris,nis',
+            'total_tagihan'     => 'required|numeric|min:0',
+        ]);
+
+        Spp::create($validateData);
+
+        return redirect('/bendahara/spp')->with('success', 'Data tagihan SPP berhasil ditambahkan');
     }
+    
 
     /**
      * Display the specified resource.
@@ -48,7 +63,11 @@ class SppController extends Controller
      */
     public function edit(Spp $spp)
     {
-        //
+        return view('bendahara.spp.edit', [
+            'title'     => 'Edit Tagihan SPP',
+            'santris'    => Santri::all(),
+            'spp'       => $spp
+        ]);
     }
 
     /**
@@ -56,7 +75,15 @@ class SppController extends Controller
      */
     public function update(Request $request, Spp $spp)
     {
-        //
+        $validateData = $request->validate([
+            'kode_tagihan'  => 'required|unique:spps,kode_tagihan,'.$spp->id,
+            'santri_nis'    => 'required|exists:santris,nis',
+            'total_tagihan' => 'required|numeric|min:0',
+        ]);
+    
+        $spp->update($validateData);
+    
+        return redirect('/bendahara/spp')->with('success', 'Data tagihan SPP berhasil diupdate');
     }
 
     /**
@@ -64,6 +91,7 @@ class SppController extends Controller
      */
     public function destroy(Spp $spp)
     {
-        //
+        $spp->delete();
+        return redirect('/bendahara/spp')->with('success', 'Data tagihan SPP berhasil dihapus');
     }
 }

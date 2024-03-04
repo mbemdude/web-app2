@@ -10,10 +10,14 @@
             <form action="/santri/{{ $santri->nis }}" method="post">
                 @csrf
                 @method('PUT')
-                <label for="nis">NIS</label>
-                <input type="text" name="nis" value="{{ $santri->nis }}" class="form-control" readonly>
-                <label for="nama">Nama</label>
-                <input type="text" name="nama" value="{{ $santri->nama }}" class="form-control">
+                <div class="form-group">
+                    <label for="nis">NIS</label>
+                    <input type="text" name="nis" value="{{ $santri->nis }}" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nama">Nama</label>
+                    <input type="text" name="nama" value="{{ $santri->nama }}" class="form-control">
+                </div>
                 <div class="mt-2">
                     <button type="submit" class="btn btn-success">Simpan</button>
                     <a href="/santri" class="btn btn-danger">Kembali</a>
