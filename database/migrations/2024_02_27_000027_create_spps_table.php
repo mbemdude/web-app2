@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('spps', function (Blueprint $table) {
             $table->id();
             $table->string('kode_tagihan')->unique()->nullable(false);
-            // $table->string('santri_nis');
-            // $table->foreign('santri_nis')
-            //     ->references('nis')
-            //     ->on('santris');
+            $table->string('santri_nis');
+            $table->foreign('santri_nis')
+                ->references('nis')
+                ->on('santris');
             $table->double('total_tagihan');
             $table->timestamps();
         });

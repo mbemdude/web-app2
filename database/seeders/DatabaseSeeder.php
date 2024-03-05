@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Santri::factory(50)->create();
 
-        // \App\Models\Spp::factory(50)->create();
+        \App\Models\Spp::factory(50)->create();
     }
 }

@@ -21,7 +21,7 @@ class SppFactory extends Factory
 
         return [
             'kode_tagihan'      => fake()->unique()->randomNumber(6),
-            // 'santri_nis'        => $santri,
+            'santri_nis'        => $santri,
             'total_tagihan'     => fake()->randomFloat(2, 50, 500),
         ];
     }

@@ -146,6 +146,25 @@
             });
         </script>
     @endif
+
+    @if ($message = Session::get('error'))
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: '{{ $message }}',
+                icon: 'error',
+                showConfirmButton: true,
+                showClass: {
+                    popup: 'swal2-noanimation',
+                    backdrop: 'swal2-noanimation'
+                },
+                hideClass: {
+                    popup: '',
+                    backdrop: ''
+                }
+            });
+        </script>
+    @endif 
 </body>
 
 </html>

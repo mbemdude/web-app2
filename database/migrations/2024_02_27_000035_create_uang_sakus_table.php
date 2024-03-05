@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('uang_sakus', function (Blueprint $table) {
             $table->id();
-            $table->string('no_transaksi')->unique()->nullable();
-            $table->dateTime('tgl');
             $table->string('santri_nis');
             $table->foreign('santri_nis')
                 ->references('nis')
                 ->on('santris');
+            $table->double('saldo');
             $table->timestamps();
         });
     }
