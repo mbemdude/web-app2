@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Page Heading -->
-    <h1 class="mb-2 font-weight-bold text-primary">Tambah Data Santri</h1>
+    <h1 class="mb-2 font-weight-bold text-primary">Update Data SPP</h1>
     
     <!-- Form -->
     <div class="card shadow mb-4">

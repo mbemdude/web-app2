@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Page Heading -->
-    <h1 class=" mb-2 font-weight-bold text-primary">Data Uang Saku</h1>
+    <h1 class=" mb-2 font-weight-bold text-primary"">Data Uang Saku</h1>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
